@@ -15,7 +15,7 @@ def criarsessao():
   if not email or not senha:
     return jsonify({'erro': 'Email e senha são obrigatórios'}), 400
   
-  usuario = usuarios.query.filter_by(email).first()
+  usuario = usuarios.query.filter_by(email=email).first()
 
   if usuario and usuarios.verificar_senha(senha, usuario.senha):
     payload = {
