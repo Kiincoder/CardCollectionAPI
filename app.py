@@ -1,8 +1,8 @@
 from flask import Flask
 from connection.config import Config
 from models.models import db
-from routes.criarsessao import criarsessao_bp
-from routes.criarusuario import criarusuario_bp
+from routes.criarsessao import criarsessao_bp 
+from routes.criarusuario import criarusuario_bp 
 
 app = Flask(__name__)
 app.config.from_object(Config)
