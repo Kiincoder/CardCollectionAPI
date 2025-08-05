@@ -12,11 +12,13 @@ class usuarios(db.Model):
   nome = db.Column(db.String(50), nullable=False)
   uri_foto = db.Column(db.String(250), nullable=True)
 
-  def set_senha(self, senha_plana):
-    self.senha = bcrypt.hashpw(senha_plana.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+  @staticmethod
+  def encrypt_senha(senha_plana):
+    return bcrypt.hashpw(senha_plana.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-  def verificar_senha(self, senha_plana):
-    return bcrypt.checkpw(senha_plana.encode('utf-8'), self.senha.encode('utf-8'))
+  @staticmethod
+  def verificar_senha(senha_plana, senha_hash):
+    return bcrypt.checkpw(senha_plana.encode('utf-8'), senha_hash.encode('utf-8'))
 
 class cartas(db.Model):
   __tablename__ = 'cartas'
