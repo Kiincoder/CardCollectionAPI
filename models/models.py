@@ -24,8 +24,8 @@ class cartas(db.Model):
   __tablename__ = 'cartas'
 
   cid = db.Column(db.Integer, primary_key=True)
-  nome = db.Column(db.String(120), unique=True, nullable=False)
-  uri_carta = db.Column(db.String(120), unique=True, nullable=False)
+  nome = db.Column(db.String(120), nullable=False)
+  uri_carta = db.Column(db.String(120), nullable=False)
   raridade = db.Column(db.Enum(
     "Comum", "Incomum", "Rara", "Ultra rara", "Secreta rara",
     name="raridade_enum"),

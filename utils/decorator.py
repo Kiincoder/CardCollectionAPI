@@ -15,7 +15,7 @@ def token_obrigatorio(f):
 
         try:
             payload = jwt.decode(token, Config.SECRET_KEY, algorithms=['HS256'])
-            request.usuario_id = payload['user_id']  # você pode usar isso na rota
+            request.usuario_id = payload['user_id'] 
         except jwt.ExpiredSignatureError:
             return jsonify({'erro': 'Token expirado'}), 401
         except jwt.InvalidTokenError:
