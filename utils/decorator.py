@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import request, jsonify
-from connection.config import Config
+from Connection.config import Config
 import jwt
 
 def token_obrigatorio(f):

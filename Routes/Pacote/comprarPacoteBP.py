@@ -1,13 +1,43 @@
 from flask import Blueprint, jsonify, request
-from models.models import cartas, colecao, usuarios, db
-from utils.decorator import token_obrigatorio
+from Models.models import cartas, colecao, usuarios, db
+from Utils.decorator import token_obrigatorio
 import random
 
 comprarpacote_bp = Blueprint('comprarpacote', __name__)
 
-@comprarpacote_bp.route('/', methods=["GET"])
+@comprarpacote_bp.route('/comprar', methods=["GET"])
 @token_obrigatorio
 def comprarpacote():
+    """
+        Comprar um pacote de cartas.
+        ---
+        tags:
+            - Pacote
+        parameters:
+            - name: Authorization
+              in: header
+              type: string
+              required: true
+        responses:
+            200:
+                description: Retorna as cartas do pacote comprado.
+                schema:
+                    type: array
+                    items:
+                        type: object
+                        properties:
+                            nome:
+                                type: string
+                                description: Nome da carta
+                            raridade:
+                                type: string
+                                description: Raridade da carta
+                            uri_carta:
+                                type: string
+                                description: URI da carta
+    """
+
+
     todas_cartas = {
         'Comum': db.session.query(cartas).filter_by(raridade='Comum').all(),
         'Incomum': db.session.query(cartas).filter_by(raridade='Incomum').all(),
