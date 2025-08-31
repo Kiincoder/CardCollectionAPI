@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from Models.models import cartas, colecao, usuarios, db
-from Utils.decorator import token_obrigatorio
+from models.models import cartas, colecao, usuarios, db
+from utils.decorator import token_obrigatorio
 import random
 
 comprarpacote_bp = Blueprint('comprarpacote', __name__)

@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from Models.models import usuarios
-from Models.models import db
-from Utils.decorator import token_obrigatorio
+from models.models import usuarios
+from models.models import db
+from utils.decorator import token_obrigatorio
 
 informacaousuario_bp = Blueprint('informacaousuario', __name__)
 

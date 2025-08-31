@@ -1,15 +1,17 @@
 from flask import Flask
-from Connection.config import Config
-from Models.models import db
-from Routes.Sessao.criarSessaoBP import criarsessao_bp 
-from Routes.Usuario.criarUsuarioBP import criarusuario_bp 
-from Routes.Pacote.comprarPacoteBP import comprarpacote_bp
-from Routes.Colecao.listarColecaoBP import listarcolecao_bp
-from Routes.Colecao.buscarColecaoBP import buscar_colecao_bp
-from Routes.Usuario.informacaoUsuarioBP import informacaousuario_bp
+from connection.config import Config
+from models.models import db
+from routes.sessao.criar_sessao import criarsessao_bp 
+from routes.usuario.criar_usuario import criarusuario_bp 
+from routes.pacote.comprar_pacote import comprarpacote_bp
+from routes.colecao.listar_colecao import listarcolecao_bp
+from routes.colecao.buscar_colecao import buscar_colecao_bp
+from routes.usuario.informacao_usuario import informacaousuario_bp
 from flasgger import Swagger
+from create_models import create_models
 
 app = Flask(__name__)
+create_models(app=app)
 swagger = Swagger(app)
 app.config.from_object(Config)
 db.init_app(app)

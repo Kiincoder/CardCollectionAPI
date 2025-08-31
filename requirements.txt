@@ -1,4 +1,6 @@
 Flask
 Flasgger
 PyJWT
-SQLAlchemy
+flask_sqlalchemy
+bcrypt
+pymysql

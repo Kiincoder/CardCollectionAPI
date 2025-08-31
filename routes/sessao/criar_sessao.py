@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 import jwt
 from datetime import datetime, timedelta
-from Models.models import usuarios
-from Connection.config import Config
+from models.models import usuarios
+from connection.config import Config
 
 criarsessao_bp = Blueprint('criarsessao', __name__)
 

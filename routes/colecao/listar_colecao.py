@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from Models.models import usuarios, colecao, cartas
-from Models.models import db
-from Utils.decorator import token_obrigatorio
+from models.models import usuarios, colecao, cartas
+from models.models import db
+from utils.decorator import token_obrigatorio
 
 
 listarcolecao_bp = Blueprint('listarcolecao', __name__)
